@@ -16,12 +16,12 @@ use crate::{DbPool};
 
 use chrono::{Utc};
 
-pub use common::*;
+pub use context::*;
 pub use query::*;
 pub use mutation::*;
 pub use user::*;
 pub use post::*;
-pub mod common;
+pub mod context;
 pub mod query;
 pub mod mutation;
 pub mod user;

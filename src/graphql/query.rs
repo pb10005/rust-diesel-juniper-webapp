@@ -5,6 +5,8 @@ pub use crate::graphql::*;
 
 graphql_schema_from_file!("src/graphql/schema/query.graphql");
 
+pub struct Query;
+
 impl QueryFields for Query {
     fn field_users(
         &self,

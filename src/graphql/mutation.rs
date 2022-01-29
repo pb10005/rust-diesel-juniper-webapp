@@ -5,6 +5,8 @@ pub use crate::graphql::*;
 
 graphql_schema_from_file!("src/graphql/schema/mutation.graphql");
 
+pub struct Mutation;
+
 impl MutationFields for Mutation {
     fn field_create_user(
         &self,

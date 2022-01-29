@@ -2,7 +2,7 @@ use std::convert::From;
 use juniper::{Executor, FieldResult};
 use juniper_from_schema::graphql_schema_from_file;
 
-pub use crate::graphql::common::*;
+pub use crate::graphql::context::*;
 
 graphql_schema_from_file!("src/graphql/schema/user.graphql");
 

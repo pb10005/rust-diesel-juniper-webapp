@@ -4,7 +4,7 @@ use juniper_from_schema::graphql_schema_from_file;
 
 use chrono::{DateTime, Utc};
 
-pub use crate::graphql::common::*;
+pub use crate::graphql::context::*;
 
 graphql_schema_from_file!("src/graphql/schema/post.graphql");
 
