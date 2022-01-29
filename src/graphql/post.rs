@@ -6,7 +6,7 @@ use chrono::{DateTime, Utc};
 
 pub use crate::graphql::common::*;
 
-graphql_schema_from_file!("src/graphql/post.graphql");
+graphql_schema_from_file!("src/graphql/schema/post.graphql");
 
 pub struct Post {
     pub id: i32,

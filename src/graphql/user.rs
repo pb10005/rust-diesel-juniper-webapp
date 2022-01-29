@@ -4,7 +4,7 @@ use juniper_from_schema::graphql_schema_from_file;
 
 pub use crate::graphql::common::*;
 
-graphql_schema_from_file!("src/graphql/user.graphql");
+graphql_schema_from_file!("src/graphql/schema/user.graphql");
 
 pub struct User {
     pub id: i32,

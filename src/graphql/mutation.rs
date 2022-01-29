@@ -3,7 +3,7 @@ use juniper_from_schema::graphql_schema_from_file;
 
 pub use crate::graphql::*;
 
-graphql_schema_from_file!("src/graphql/mutation.graphql");
+graphql_schema_from_file!("src/graphql/schema/mutation.graphql");
 
 impl MutationFields for Mutation {
     fn field_create_user(

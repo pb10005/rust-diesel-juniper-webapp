@@ -27,7 +27,7 @@ pub mod mutation;
 pub mod user;
 pub mod post;
 
-graphql_schema_from_file!("src/graphql/schema.graphql");
+graphql_schema_from_file!("src/graphql/schema/schema.graphql");
 
 fn playground() -> HttpResponse {
     let html = playground_source("");

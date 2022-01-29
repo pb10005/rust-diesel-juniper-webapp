@@ -3,7 +3,7 @@ use juniper_from_schema::graphql_schema_from_file;
 
 pub use crate::graphql::*;
 
-graphql_schema_from_file!("src/graphql/query.graphql");
+graphql_schema_from_file!("src/graphql/schema/query.graphql");
 
 impl QueryFields for Query {
     fn field_users(
