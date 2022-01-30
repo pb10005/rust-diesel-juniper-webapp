@@ -33,4 +33,32 @@ impl QueryFields for Query {
             .and_then(|posts| Ok(posts.into_iter().map_into().collect()))
             .map_err(Into::into)
     }
+
+    fn field_user_by_id(
+        &self,
+        executor: &Executor<'_, Context>,
+        _trail: &QueryTrail<'_, User, Walked>,
+        id: i32,
+    ) -> FieldResult<User> {
+        use crate::schema::users::dsl::users;
+
+        users.find(id)
+            .first::<crate::models::users::User>(&executor.context().db_con)
+            .map(Into::into)
+            .map_err(Into::into)
+    }
+
+    fn field_post_by_id(
+        &self,
+        executor: &Executor<'_, Context>,
+        _trail: &QueryTrail<'_, Post, Walked>,
+        id: i32,
+    ) -> FieldResult<Post> {
+        use crate::schema::posts::dsl::posts;
+
+        posts.find(id)
+            .first::<crate::models::posts::Post>(&executor.context().db_con)
+            .map(Into::into)
+            .map_err(Into::into)
+    }
 }

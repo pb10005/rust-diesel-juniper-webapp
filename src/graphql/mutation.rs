@@ -1,4 +1,4 @@
-use juniper::{Executor, FieldResult, FieldError};
+use juniper::{Executor, FieldResult};
 use juniper_from_schema::graphql_schema_from_file;
 
 pub use crate::graphql::*;
@@ -56,12 +56,10 @@ impl MutationFields for Mutation {
     ) -> FieldResult<i32> {
         use crate::schema::posts::dsl::*;
 
-        let delete_rows = diesel::delete(posts.filter(id.eq(post_id))).execute(&executor.context().db_con);
-        if delete_rows.unwrap() == 1 {
-            Ok(post_id)
-        } else {
-            Err(FieldError::new("An error occurred while deleting a post", juniper::Value::scalar(post_id)))
-        }
+        diesel::delete(posts.filter(id.eq(post_id)))
+            .execute(&executor.context().db_con)
+            .map(|rownum| rownum as i32)
+            .map_err(Into::into)
             
     }
 }
