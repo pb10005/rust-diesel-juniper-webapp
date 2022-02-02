@@ -39,8 +39,8 @@ impl PostFields for Post {
     }
 }
 
-impl From<crate::models::posts::Post> for Post {
-    fn from(post: crate::models::posts::Post) -> Self {
+impl From<crate::models::Post> for Post {
+    fn from(post: crate::models::Post) -> Self {
         Self {
             id: post.id,
             user_id: post.user_id,

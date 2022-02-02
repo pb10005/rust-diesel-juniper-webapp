@@ -21,8 +21,8 @@ impl UserFields for User {
     }
 }
 
-impl From<crate::models::users::User> for User {
-    fn from(user: crate::models::users::User) -> Self {
+impl From<crate::models::User> for User {
+    fn from(user: crate::models::User) -> Self {
         Self {
             id: user.id,
             name: user.name,

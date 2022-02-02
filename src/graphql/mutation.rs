@@ -16,11 +16,11 @@ impl MutationFields for Mutation {
     ) -> FieldResult<User> {
         use crate::schema::users;
 
-        let new_user = crate::models::users::NewUser { name: name };
+        let new_user = crate::models::NewUser { name: name };
 
         diesel::insert_into(users::table)
             .values(&new_user)
-            .get_result::<crate::models::users::User>(&executor.context().db_con)
+            .get_result::<crate::models::User>(&executor.context().db_con)
             .map(Into::into)
             .map_err(Into::into)
     }
@@ -35,7 +35,7 @@ impl MutationFields for Mutation {
     ) -> FieldResult<Post> {
         use crate::schema::posts;
 
-        let new_post = crate::models::posts::NewPost { 
+        let new_post = crate::models::NewPost { 
             user_id: user_id,
             title: title,
             body: body,
@@ -44,7 +44,7 @@ impl MutationFields for Mutation {
 
         diesel::insert_into(posts::table)
             .values(&new_post)
-            .get_result::<crate::models::posts::Post>(&executor.context().db_con)
+            .get_result::<crate::models::Post>(&executor.context().db_con)
             .map(Into::into)
             .map_err(Into::into)
     }
